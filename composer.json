@@ -21,9 +21,8 @@
         "doctrine/data-fixtures": "dev-master",
         "gedmo/doctrine-extensions": "dev-master",
         "firephp/firephp-core": "dev-master",
-	"symfony/yaml": "2.1.x",
+	    "symfony/yaml": "2.1.x",
         "tomphp/tjo-annotation-router": "dev-master"
-
     },
 
     "require-dev": {

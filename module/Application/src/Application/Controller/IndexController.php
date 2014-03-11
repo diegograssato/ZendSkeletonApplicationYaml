@@ -14,12 +14,12 @@ use Zend\View\Model\ViewModel;
 use TjoAnnotationRouter\Annotation as Router;
 
 /**
- * @Router\Base("home")
+ * @Router\Base("demo")
  */
 class IndexController extends AbstractActionController
 {
     /**
-     * @Router\Route(type="literal", name="index", route="/")
+     * @Router\Route(type="literal", name="index", route="/index")
      */
     public function indexAction()
     {
