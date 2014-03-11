@@ -1,0 +1,12 @@
+modules:
+- Application
+- ZendDeveloperTools
+- DoctrineModule
+- DoctrineMongoODMModule
+- TjoAnnotationRouter
+module_listener_options:
+  config_glob_paths:
+  - config/autoload/{,*.}{global,local}.yml
+  module_paths:
+  - ./module
+  - ./vendor
