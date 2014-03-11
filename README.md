@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ZendSkeletonApplication
 =======================
 
@@ -75,3 +76,9 @@ project and you should be ready to go! It should look something like below:
             Allow from all
         </Directory>
     </VirtualHost>
+=======
+ZendSkeletonApplicationYaml
+===========================
+
+ZendSkeletonApplicationYaml
+>>>>>>> 85fb8764af74be3c9a82d1fdca2e58d82f01471b
