@@ -1,8 +1,5 @@
 modules:
 - Application
-- ZendDeveloperTools
-- DoctrineModule
-- DoctrineMongoODMModule
 - TjoAnnotationRouter
 module_listener_options:
   config_glob_paths:

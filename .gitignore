@@ -6,6 +6,7 @@ nbproject
 .idea
 .project
 .settings
+error.log
 composer.lock
 vendor/bin
 vendor
