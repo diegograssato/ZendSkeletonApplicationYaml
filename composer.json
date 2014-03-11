@@ -10,9 +10,29 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
+<<<<<<< HEAD
         "zendframework/zendframework": "2.2.*",
 	    "symfony/yaml": "2.1.*",
         "tomphp/tjo-annotation-router": "dev-master"
+=======
+        "zendframework/zendframework": "2.*@stable",
+        "zendframework/zend-developer-tools": "dev-master",
+        "zendframework/zftool": "dev-master",
+        "sundrique/doctrine-tools": ">=0.2",
+        "dino/dompdf-module": "dev-master",
+        "doctrine/doctrine-module": "0.8.*",
+        "doctrine/mongodb-odm": "dev-master",
+        "doctrine/doctrine-mongo-odm-module": "dev-master",
+        "doctrine/data-fixtures": "dev-master",
+        "gedmo/doctrine-extensions": "dev-master",
+        "firephp/firephp-core": "dev-master",
+	    "symfony/yaml": "2.1.x",
+        "tomphp/tjo-annotation-router": "dev-master"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+>>>>>>> master
     },
     "config": {
         "bin-dir": "bin"
