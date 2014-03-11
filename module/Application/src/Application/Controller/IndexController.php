@@ -11,11 +11,20 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use TjoAnnotationRouter\Annotation as Router;
 
+/**
+ * @Router\Base("home")
+ */
 class IndexController extends AbstractActionController
 {
+    /**
+     * @Router\Route(type="literal", name="index", route="/")
+     */
     public function indexAction()
     {
         return new ViewModel();
     }
+
+
 }
