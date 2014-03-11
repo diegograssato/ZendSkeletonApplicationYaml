@@ -15,7 +15,7 @@ $decoder = new Symfony\Component\Yaml\Yaml();
 
 // Loads the configurations
 $reader = new Zend\Config\Reader\Yaml();
-$reader->setYamlDecoder( [ $decoder, 'parse' ] );
+$reader->setYamlDecoder(array($decoder, 'parse'));
 $config = $reader->fromFile( 'config/application.config.yml' );
 
 // Runs the application

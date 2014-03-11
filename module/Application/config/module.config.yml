@@ -5,7 +5,7 @@ translator:
   locale: pt_BR
   translation_file_patterns:
         - type: gettext
-          base_dir:  /home/diego/Downloads/simpleddns/module/Application/language
+          base_dir:  /../language
           pattern: '%s.mo'
 controllers:
   invokables:
@@ -16,10 +16,3 @@ view_manager:
   doctype: HTML5
   not_found_template: error/404
   exception_template: error/index
-  template_map:
-    layout/layout: /home/diego/Downloads/ZendSkeletonApplicationYaml/module/Application/view/layout/layout.phtml
-    application/index/index: /home/diego/Downloads/ZendSkeletonApplicationYaml/module/Application/view/application/index/index.phtml
-  template_path_stack:
-  - /home/diego/Downloads/ZendSkeletonApplicationYaml/module/Application/view
-strategies:
-- ViewJsonStrategy
