@@ -4,9 +4,8 @@ service_manager:
 translator:
   locale: pt_BR
   translation_file_patterns:
-        - type: gettext
-          base_dir:  /../language
-          pattern: '%s.mo'
+          - type: gettext
+            pattern: '%s.mo'
 controllers:
   invokables:
     Application\Controller\Index: Application\Controller\IndexController

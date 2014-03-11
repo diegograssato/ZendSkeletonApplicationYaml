@@ -1,1 +1,0 @@
-../vendor/tomphp/tjo-annotation-router/bin/cache_routes.php

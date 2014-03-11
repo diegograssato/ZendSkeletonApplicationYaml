@@ -1,25 +1,18 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
-
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use TjoAnnotationRouter\Annotation as Router;
+use SpiffyRoutes\Annotation as Route;
 
 /**
- * @Router\Base("demo")
+ * Class IndexController
+ * @package Application\Controller
  */
 class IndexController extends AbstractActionController
 {
     /**
-     * @Router\Route(type="literal", name="index", route="/index")
+     * @Route\Literal("/", name="home")
      */
     public function indexAction()
     {

@@ -11,15 +11,10 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.2.*",
-	"symfony/yaml": "2.1.*",
-        "tomphp/tjo-annotation-router": "dev-master"
-    },
-
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*"
+	    "symfony/yaml": "2.1.*",
+        "spiffy/spiffy-routes": "dev-master"
     },
     "config": {
         "bin-dir": "bin"
     }
 }
-

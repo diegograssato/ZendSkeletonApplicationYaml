@@ -20,6 +20,7 @@ class Module {
       $reader  = ConfigFactory::getReaderPluginManager()->get( 'yaml' );
       $reader->setYamlDecoder(array($decoder, 'parse'));
     }
+
    // Controle de layout
     public function onBootstrap(MvcEvent $e)
     {
@@ -33,9 +34,9 @@ class Module {
     {
         return include __DIR__ . '/config/module.config.php';
     }
+
     public function getConfig()
     {
-        $decoder = new YamlParser();
         $reader  = ConfigFactory::getReaderPluginManager()->get( 'yaml' );
 
         $data   = $reader->fromFile(__DIR__ . '/config/module.config.yml');
@@ -44,7 +45,7 @@ class Module {
         $processor = new Constant();
         $processor->process($config);
 
-        //$data['translator']['translation_file_patterns']['base_dir']= $config->__DIR__ . '/../language';
+        $data['translator']['translation_file_patterns'][0]['base_dir']= $config->__DIR__ . '/../language';
         $data['view_manager']['template_path_stack']['Application'] = $config->__DIR__.'/../view';
         $data['view_manager']['template_map']['not_found_template'] = $config->__DIR__ . '/../view/error/404.phtml';
         $data['view_manager']['template_map']['exception_template'] = $config->__DIR__ . '/../view/error/index.phtml';
