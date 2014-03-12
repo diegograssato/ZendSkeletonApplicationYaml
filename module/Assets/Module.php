@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Assets;
 
 use Zend\Config\Factory,
     Zend\ModuleManager\Feature\AutoloaderProviderInterface,
@@ -7,7 +7,7 @@ use Zend\Config\Factory,
 
 /**
  * Class Module
- * @package App
+ * @package Assets
  */
 class Module implements ConfigProviderInterface, AutoloaderProviderInterface
 {

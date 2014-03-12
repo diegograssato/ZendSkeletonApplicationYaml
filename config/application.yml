@@ -1,8 +1,10 @@
 modules:
-  - App
+  - Assets
   - Application
   - SpiffyRoutes
   - ZfcTwig
+  - DoctrineModule
+  - DoctrineMongoODMModule
 module_listener_options:
   config_glob_paths:
     - config/autoload/{,*.}{global,local}.yml

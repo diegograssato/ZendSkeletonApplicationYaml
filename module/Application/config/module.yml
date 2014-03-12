@@ -8,3 +8,15 @@ view_manager:
   not_found_template: error/404
   exception_template: error/index
   template_map:
+doctrine:
+  driver:
+    _driver:
+      class: Doctrine\ORM\Mapping\Driver\AnnotationDriver
+      cache: array
+      paths:
+      - /opt/YamlConv/../src/Entity
+    orm_default:
+      drivers:
+        \Entity: _driver
+data-fixture:
+  _fixture: /opt/YamlConv/../src//Fixture
