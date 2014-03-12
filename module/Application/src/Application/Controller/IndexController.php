@@ -12,14 +12,18 @@ use SpiffyRoutes\Annotation as Route;
 class IndexController extends AbstractActionController
 {
     /**
-     * @Route\Literal("/", name="home")
+     * @Route\Segment("[/:id]", constraints={"id"="\d+"}, name="home")
      */
     public function indexAction()
     {
         return new ViewModel();
     }
 
-    public function novoAction()
+    /**
+     * @Route\Segment("[/:id]", constraints={"id"="\d+"})
+     * @return ViewModel
+     */
+    public function editarAction()
     {
         return new ViewModel(array('data' => 'Olá este é novo!'));
     }
