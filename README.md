@@ -10,6 +10,14 @@ looking to get their feet wet with ZF2.
 Installation
 ------------
 
+MongoDB
+-----------
+    apt-get install php5-dev php5-cli php-pear mongodb-clients mongodb-server php5-mongo
+
+    echo "extension = mongo.so" >> /etc/php5/cli/php.ini
+    echo "extension = mongo.so" >> /etc/php5/apache2/php.ini
+
+
 Using Composer (recommended)
 ----------------------------
 Clone the repository and manually invoke `composer` using the shipped
