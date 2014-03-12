@@ -21,7 +21,7 @@ Zend\Config\Factory::registerReader('yml', 'yaml');
 $reader = new Zend\Config\Reader\Yaml();
 $reader  = Zend\Config\Factory::getReaderPluginManager()->get('yaml');
 $reader->setYamlDecoder(array(new Symfony\Component\Yaml\Yaml(), 'parse'));
-$config = $reader->fromFile( 'config/application.yml' );
+$config = $reader->fromFile('config/application.yml');
 
 // Runs the application
 Zend\Mvc\Application::init( $config )->run();
