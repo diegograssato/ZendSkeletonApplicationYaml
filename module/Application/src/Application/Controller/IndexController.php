@@ -29,22 +29,35 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
-
     /**
-     * @Route\Segment("[/:id]", constraints={"id"="\d+"})
+     * @Route\Segment("/categoria", name="categoria")
      * @return ViewModel
      */
-    public function editarAction()
+    public function categoriaAction()
     {
-        return new ViewModel(array('data' => 'Olá este é o editar! '));
-    }
+        /**
+         * @var $form \Zend\Form\Form
+         */
+        $form = $this->getServiceLocator()->get('FormElementManager')->get('categoria.form');
 
-     /**
-     * @Route\Segment("/novo[/:id]", constraints={"id"="\d+"})
-     */
-    public function novoAction()
-    {
-        return new ViewModel(array('data' => 'Olá este é novo! '));
+        if($this->getRequest()->isPost()){
+            $form->setData($this->getRequest()->getPost()->toArray());
+
+            if($form->isValid()){
+
+                /**
+                 * @var $service \Application\Service\CategoriaService
+                 */
+                $service = $this->getServiceLocator()->get('categoria.service');
+
+                $service->save($form->getData());
+
+                $this->flashMessenger()->addSuccessMessage('Cadatrado com sucesso!');
+                return $this->redirect()->toRoute('categoria', array('controller' => 'categoria'));
+            }
+        }
+
+        return new ViewModel(array('form' => $form));
     }
 
      /**

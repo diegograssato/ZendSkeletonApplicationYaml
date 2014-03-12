@@ -1,14 +1,22 @@
 <?php
 namespace Application;
 
+use Application\Entity\Categoria;
+use Application\Service\CategoriaService;
 use Zend\EventManager\EventInterface;
 use Zend\Mvc\ModuleRouteListener,
     Zend\ModuleManager\Feature\AutoloaderProviderInterface,
     Zend\ModuleManager\Feature\ConfigProviderInterface,
     Zend\ModuleManager\Feature\BootstrapListenerInterface,
+    Zend\ModuleManager\Feature\FormElementProviderInterface,
     Zend\Config\Factory;
 
-class Module implements AutoloaderProviderInterface, ConfigProviderInterface, BootstrapListenerInterface {
+use Zend\Form\Annotation\AnnotationBuilder;
+
+class Module implements AutoloaderProviderInterface,
+    ConfigProviderInterface, BootstrapListenerInterface,
+    FormElementProviderInterface
+{
 
     /**
      * Listen to the bootstrap event
@@ -48,6 +56,46 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Bo
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
+            ),
+        );
+    }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'categoria.service' => function($sm){
+                        return new CategoriaService($sm->get('doctrine.entitymanager.orm_default'));
+                    },
+            ),
+        );
+    }
+
+    /**
+     * Expected to return \Zend\ServiceManager\Config object or array to
+     * seed such an object.
+     *
+     * @return array|\Zend\ServiceManager\Config
+     */
+    public function getFormElementConfig()
+    {
+        return array(
+            'factories' => array(
+                'categoria.form' => function($sm){
+                        $builder = new AnnotationBuilder();
+                        $form = $builder->createForm(new Categoria());
+                        $form->bind($builder->getEntity());
+
+                        $form->add(array(
+                                'name' => 'enviar',
+                                'type' => 'Zend\Form\Element\Submit',
+                                'attributes' => array(
+                                    'value' => 'Enviar',
+                                    'class' => 'btn btn-success btn-large',
+                                )
+                            ));
+                        return $form;
+                    },
             ),
         );
     }
