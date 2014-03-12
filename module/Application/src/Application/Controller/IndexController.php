@@ -19,5 +19,8 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
-
+    public function novoAction()
+    {
+        return new ViewModel(array('data' => 'Olá este é novo!'));
+    }
 }

@@ -1,28 +1,16 @@
 <?php
-namespace Application;
+namespace App;
 
-use Zend\EventManager\EventInterface;
-use Zend\Mvc\ModuleRouteListener,
+use Zend\Config\Factory,
     Zend\ModuleManager\Feature\AutoloaderProviderInterface,
-    Zend\ModuleManager\Feature\ConfigProviderInterface,
-    Zend\ModuleManager\Feature\BootstrapListenerInterface,
-    Zend\Config\Factory;
+    Zend\ModuleManager\Feature\ConfigProviderInterface;
 
-class Module implements AutoloaderProviderInterface, ConfigProviderInterface, BootstrapListenerInterface {
-
-    /**
-     * Listen to the bootstrap event
-     *
-     * @param EventInterface $e
-     * @return array
-     */
-    public function onBootstrap(EventInterface $e)
-    {
-        $e->getApplication()->getServiceManager()->get('translator');
-        $eventManager        = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
-    }
+/**
+ * Class Module
+ * @package App
+ */
+class Module implements ConfigProviderInterface, AutoloaderProviderInterface
+{
 
     /**
      * Returns configuration to merge with application configuration
@@ -32,7 +20,13 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Bo
     public function getConfig()
     {
         $data = Factory::fromFile(__DIR__ . '/config/module.yml');
+
+        $data['translator']['translation_file_patterns'][0]['base_dir']= getcwd().'/module/'.__NAMESPACE__.'/language';
         $data['view_manager']['template_path_stack'][__NAMESPACE__] = __DIR__.'/view';
+        $data['view_manager']['template_map']['layout/layout'] = getcwd().'/module/'.__NAMESPACE__.'/view/layout/layout.twig';
+        $data['view_manager']['template_map']['error/404'] = getcwd().'/module/'.__NAMESPACE__.'/view/error/404.phtml';
+        $data['view_manager']['template_map']['error/index'] = getcwd().'/module/'.__NAMESPACE__.'/view/error/index.phtml';
+
         return $data;
     }
 

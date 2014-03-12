@@ -8,18 +8,20 @@ error_reporting(E_ALL | E_STRICT);
  */
 chdir(dirname(__DIR__));
 
+// Decline static file requests back to the PHP built-in webserver
+if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))) {
+    return false;
+}
+
 // Setup autoloading
 require 'init_autoloader.php';
 
-// Run the application!
-//Zend\Mvc\Application::init(require 'config/application.config.yml')->run();
-//// Declaring the yaml decoder
-$decoder = new Symfony\Component\Yaml\Yaml();
-
 // Loads the configurations
+Zend\Config\Factory::registerReader('yml', 'yaml');
 $reader = new Zend\Config\Reader\Yaml();
-$reader->setYamlDecoder(array($decoder, 'parse'));
-$config = $reader->fromFile( 'config/application.config.yml' );
+$reader  = Zend\Config\Factory::getReaderPluginManager()->get('yaml');
+$reader->setYamlDecoder(array(new Symfony\Component\Yaml\Yaml(), 'parse'));
+$config = $reader->fromFile( 'config/application.yml' );
 
 // Runs the application
 Zend\Mvc\Application::init( $config )->run();
