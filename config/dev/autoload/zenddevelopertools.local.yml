@@ -1,0 +1,14 @@
+zenddevelopertools:
+  profiler:
+    enabled: "true"
+    strict: "false"
+    flush_early: "false"
+    cache_dir: "data/cache"
+    matcher:
+    collectors:
+  toolbar:
+    enabled: "true"
+    auto_hide: "false"
+    position: "bottom"
+    version_check: "false"
+    entries:
