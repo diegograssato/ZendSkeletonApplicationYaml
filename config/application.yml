@@ -5,8 +5,7 @@ modules:
   - ZfcTwig
   - DoctrineModule
   - DoctrineORMModule
- # - DoctrineMongoODMModule
- # - DoctrineDataFixtureModule
+  - DoctrineMongoODMModule
 module_listener_options:
   config_glob_paths:
     - ./config/autoload/{,*.}{global,local}.yml
