@@ -1,5 +1,7 @@
 {% extends 'layout/layout.twig' %}
 
 {% block content %}
-<h3>{{ data }}</h3>
+
+    {{ form(form, {'method': 'POST'}) }}
+
 {% endblock content %}
