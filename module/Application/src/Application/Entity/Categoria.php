@@ -12,7 +12,7 @@ use Zend\Form\Annotation as Form;
  * @ORM\Entity(repositoryClass="Application\Entity\CategoriaRepository")
  * @ORM\HasLifecycleCallbacks
  * @Form\Name("categoria")
- * @Form\Hydrator("Zend\Stdlib\Hydrator\ObjectProperty")
+ * @Form\Hydrator("Zend\Stdlib\Hydrator\ClassMethods")
  */
 class Categoria
 {
@@ -23,7 +23,7 @@ class Categoria
      * @Form\Exclude()
      * @var $id
      */
-    public $id;
+    protected $id;
 
     /**
      * @ORM\Column(name="nome", type="string", length=45, nullable=false)
@@ -35,14 +35,14 @@ class Categoria
      * @Form\Options({"label":"Nome:"})
      * @var $nome
      */
-    public $nome;
+    protected $nome;
 
     /**
      * @ORM\Column(name="data_cadastro", type="datetime", nullable=false)
      * @Form\Exclude()
      * @var $data_cadastro
      */
-    public $data_cadastro;
+    protected $data_cadastro;
 
     /**
      * @ORM\Column(name="ativo", type="boolean", nullable=false)
@@ -52,7 +52,25 @@ class Categoria
      * @Form\Options({"label":"Nome:"})
      * @var $ativo
      */
-    public $ativo = true;
+    protected $ativo = true;
+
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @param mixed $nome
