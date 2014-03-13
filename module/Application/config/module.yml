@@ -8,19 +8,3 @@ view_manager:
   not_found_template: error/404
   exception_template: error/index
   template_map:
-
-#Configuração do Doctrine
-doctrine:
-  driver:
-    Application_driver:
-      class: Doctrine\ORM\Mapping\Driver\AnnotationDriver
-      cache: array
-      paths:
-      - ./module/Application/src/Application/Entity
-    orm_default:
-      drivers:
-        Application\Entity: Application_driver
-
-#Configuração das Fixtures
-data-fixture:
-  Application_fixture: ./module/Application/src/Application/Fixture
