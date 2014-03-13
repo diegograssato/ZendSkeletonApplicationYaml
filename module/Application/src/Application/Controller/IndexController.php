@@ -83,7 +83,8 @@ class IndexController extends AbstractActionController
         $alterData = array(
                        'nome' => 'Diego Grassato',
                       );
-        (new Hydrator\ClassMethods())->hydrate($alterData, $alterEntity);
+        $hydrator = new Hydrator\ClassMethods();
+        $hydrator->hydrate($alterData, $alterEntity);
 
        $entityManager->persist($alterEntity);
        $entityManager->flush();

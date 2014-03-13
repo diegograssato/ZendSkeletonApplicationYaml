@@ -8,6 +8,8 @@ view_manager:
   not_found_template: error/404
   exception_template: error/index
   template_map:
+
+#Configuração do Doctrine
 doctrine:
   driver:
     Application_driver:
@@ -18,5 +20,7 @@ doctrine:
     orm_default:
       drivers:
         Application\Entity: Application_driver
+
+#Configuração das Fixtures
 data-fixture:
   Application_fixture: ./module/Application/src/Application/Fixture

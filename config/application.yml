@@ -9,7 +9,7 @@ modules:
  # - DoctrineDataFixtureModule
 module_listener_options:
   config_glob_paths:
-    - config/autoload/{,*.}{global,local}.yml
+    - ./config/autoload/{,*.}{global,local}.yml
   module_paths:
     - ./module
     - ./vendor
