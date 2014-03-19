@@ -16,13 +16,9 @@ require 'init_autoloader.php';
 // Loads the configurations
 Zend\Config\Factory::registerReader('yml', 'yaml');
 $reader = new Zend\Config\Reader\Yaml();
-//Quando for usar separadamente
-//$reader  = Zend\Config\Factory::getReaderPluginManager()->get('yaml');
 $config   = $reader->fromFile('config/application.yml');
 
 // Runs the application
-$application = Zend\Mvc\Application::init( $config );
-//$application->getRequest()->setBaseUrl('/');
-$application->run();
+$application = Zend\Mvc\Application::init( $config )->run();
 
 

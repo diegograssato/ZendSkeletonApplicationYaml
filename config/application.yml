@@ -3,9 +3,6 @@ modules:
   - Application
   - SpiffyRoutes
   - ZfcTwig
-  - DoctrineModule
-  - DoctrineORMModule
-  - DoctrineMongoODMModule
   - AsseticBundle
 
 module_listener_options:
