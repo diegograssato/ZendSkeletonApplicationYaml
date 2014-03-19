@@ -79,6 +79,7 @@ class IndexController extends AbstractActionController
         $entityManager->persist($usuario);
         $entityManager->flush();
 
+        // Faz busca por referencia
         $alterEntity = $entityManager->getReference($this->entityODM, $usuario->getId());
         $alterData = array(
                        'nome' => 'Diego Grassato',
@@ -89,6 +90,9 @@ class IndexController extends AbstractActionController
        $entityManager->persist($alterEntity);
        $entityManager->flush();
 
-        return new ViewModel(array('data' => 'Cadastro e alteracao via Mongo! '.$usuario->getNome()));
+        // Faz busca
+        $repository = $entityManager->getRepository($this->entityODM);
+        $entity = $repository->find($usuario->getId());
+        return new ViewModel(array('data' => 'Cadastro e alteracao via Mongo! '.$entity->getNome()));
     }
 }
