@@ -41,6 +41,7 @@ class Module implements AutoloaderProviderInterface,
     {
         $data = Factory::fromFile(__DIR__ . '/config/module.yml');
         $data['view_manager']['template_path_stack'][__NAMESPACE__] = __DIR__.'/view';
+
         return $data;
     }
 

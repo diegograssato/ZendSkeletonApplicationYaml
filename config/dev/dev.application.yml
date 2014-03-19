@@ -8,4 +8,4 @@ modules:
   - DoctrineMongoODMModule
 module_listener_options:
   config_glob_paths:
-    - config/dev/autoload/{,*.}{global,local}.yml
+    - ./config/dev/autoload/{,*.}{global,local}.yml
