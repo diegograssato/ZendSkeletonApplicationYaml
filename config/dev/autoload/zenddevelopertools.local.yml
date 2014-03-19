@@ -6,9 +6,12 @@ zenddevelopertools:
     cache_dir: "data/cache"
     matcher:
     collectors:
+      db: false
+
   toolbar:
-    enabled: "true"
-    auto_hide: "false"
-    position: "bottom"
-    version_check: "false"
+    enabled: true
+    auto_hide: false
+    position: bottom
+    version_check: true
     entries:
+      doctrine-odm: zend-developer-tools/toolbar/doctrine-odm

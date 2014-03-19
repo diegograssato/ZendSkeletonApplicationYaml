@@ -1,11 +1,9 @@
 #Configuração de carregamento para ambiente de desenvolvimento
 modules:
-  - DoctrineModule
-  - DoctrineORMModule
   - DoctrineDataFixtureModule
   - ZendDeveloperTools
   - DoctrineTools
-  - DoctrineMongoODMModule
+  - ZFTool
 module_listener_options:
   config_glob_paths:
     - ./config/dev/autoload/{,*.}{global,local}.yml
