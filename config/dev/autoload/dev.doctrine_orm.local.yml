@@ -22,4 +22,8 @@ doctrine:
         Application\Entity: Application_driver
 data-fixture:
   Application_fixture: ./module/Application/src/Application/Fixture
-
+doctrinetools:
+  migrations:
+      directory: data/migracoes
+      namespace: Application\Migrations
+      table: 'categorias'

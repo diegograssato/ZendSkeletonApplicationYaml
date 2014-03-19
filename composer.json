@@ -22,7 +22,7 @@
         "doctrine/doctrine-mongo-odm-module": "dev-master",
         "doctrine/data-fixtures": "dev-master",
         "gedmo/doctrine-extensions": "dev-master",
-        "doctrine/migrations": "dev-master"
+        "sundrique/doctrine-tools": ">=0.2"
     },
    "require-dev": {
         "phpunit/phpunit": "3.7.*"
