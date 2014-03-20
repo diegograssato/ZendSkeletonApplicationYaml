@@ -18,8 +18,7 @@ class Module
      */
     public function getConfig()
     {
-        $data   =  Factory::fromFile(__DIR__ . '/config/module.yml');
-        return $data;
+        return Factory::fromFile(__DIR__ . '/config/module.yml');
     }
 
     /**

@@ -17,7 +17,9 @@
         "components/jquery": "1.10.*",
         "twbs/bootstrap": "3.*@stable",
         "fortawesome/font-awesome": "4.0.*",
-        "components/jqueryui": "dev-master"
+        "components/jqueryui": "dev-master",
+        "symfony/yaml": "2.1.*",
+        "malsup/form": "dev-master"
     },
    "require-dev": {
         "phpunit/phpunit": "3.7.*"

@@ -1,6 +1,8 @@
 <?php
 
 
+use Symfony\Component\Yaml\Yaml;
+
 ini_set('display_errors', true);
 error_reporting(E_ALL | E_STRICT);
 
@@ -20,8 +22,10 @@ if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['RE
 require 'init_autoloader.php';
 
 // Loads the configurations
-Zend\Config\Factory::registerReader('yml', 'yaml');
 $reader = new Zend\Config\Reader\Yaml();
+Zend\Config\Factory::registerReader('yml', 'yaml');
+$reader = Zend\Config\Factory::getReaderPluginManager()->get('yaml');
+$reader->setYamlDecoder(array(new Symfony\Component\Yaml\Yaml(), 'parse'));
 $config   = $reader->fromFile('config/application.yml');
 
 // Runs the application
