@@ -1,0 +1,23 @@
+{{ docType() }}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {% block title %}ZF2 {{ translate('Skeleton Application YAML') }}{% endblock title %}
+        </title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block meta %}{% endblock meta %}
+
+        {{ headlink() }}
+        {{ headstyle() }}
+        {{ headscript() }}
+
+        {% block style %}{% endblock style %}
+        {% block script %}{% endblock script %}
+    </head>
+    <body>
+        {% block content %}{{ content|raw }}{% endblock content %}
+        {% block inline %}{% endblock inline %}
+    </body>
+</html>
