@@ -1,16 +1,15 @@
 <?php
 namespace Assets;
 
-use Zend\Config\Factory,
-    Zend\ModuleManager\Feature\AutoloaderProviderInterface,
-    Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\Config\Factory;
 
 /**
  * Class Module
  * @package Assets
  */
-class Module implements ConfigProviderInterface, AutoloaderProviderInterface
+class Module
 {
+
 
     /**
      * Returns configuration to merge with application configuration
@@ -19,15 +18,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface
      */
     public function getConfig()
     {
-        $data = Factory::fromFile(__DIR__ . '/config/module.yml');
-
-        $data['translator']['translation_file_patterns'][0]['base_dir']= getcwd().'/module/'.__NAMESPACE__.'/language';
-        $data['view_manager']['template_path_stack'][__NAMESPACE__] = __DIR__.'/view';
-        $data['view_manager']['template_map']['layout/layout'] = getcwd().'/module/'.__NAMESPACE__.'/view/layout/layout.twig';
-        $data['view_manager']['template_map']['error/404'] = getcwd().'/module/'.__NAMESPACE__.'/view/error/404.phtml';
-        $data['view_manager']['template_map']['error/index'] = getcwd().'/module/'.__NAMESPACE__.'/view/error/index.phtml';
-
-        return $data;
+        return Factory::fromFile(__DIR__ . '/config/module.yml');
     }
 
     /**
@@ -45,4 +36,6 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface
             ),
         );
     }
+
+
 }

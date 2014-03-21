@@ -1,3 +1,4 @@
+#Configuração do Controller e das View
 controllers:
   invokables:
     Application\Controller\Index: Application\Controller\IndexController
@@ -8,3 +9,9 @@ view_manager:
   not_found_template: error/404
   exception_template: error/index
   template_map:
+      layout/layout: module/Application/view/application/layout/layout.twig
+      application/index/index: module/Application/view/application/index/index.twig
+      error/404: module/Assets/view/error/404.twig
+      error/index: module/Assets/view/error/index.phtml
+  template_path_stack:
+      - module/Application/view/
