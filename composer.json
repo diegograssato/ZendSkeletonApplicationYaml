@@ -14,22 +14,27 @@
         "zf-commons/zfc-twig": "dev-master",
         "spiffy/spiffy-routes": "dev-master",
         "widmogrod/zf2-assetic-module": "1.*",
-        "components/jquery": "1.10.*",
         "twbs/bootstrap": "3.*@stable",
         "fortawesome/font-awesome": "4.0.*",
         "components/jqueryui": "dev-master",
-        "symfony/yaml": "2.1.*",
+        "components/jquery": "1.10.*",
         "malsup/form": "dev-master"
     },
    "require-dev": {
         "phpunit/phpunit": "3.7.*"
     },
+    "scripts": {
+        "post-install-cmd": [],
+        "post-update-cmd": [ "pwd" ]
+    },
     "config": {
         "bin-dir": "bin"
     },
     "autoload": {
-        "psr-4":{
-            "Assets\\" : "module/Assets/src/"
+        "psr-0": { "": "module/" },
+        "psr-4": {
+            "Assets\\" : "module/Assets/src/",
+            "Application\\" : "module/Application/src/"
         }
     }
 }

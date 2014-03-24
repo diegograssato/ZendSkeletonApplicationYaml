@@ -18,13 +18,14 @@ if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['RE
 require 'init_autoloader.php';
 
 // Loads the configurations
-$reader = new Zend\Config\Reader\Yaml();
 Zend\Config\Factory::registerReader('yml', 'yaml');
-$reader = Zend\Config\Factory::getReaderPluginManager()->get('yaml');
-$reader->setYamlDecoder(array(new Symfony\Component\Yaml\Yaml(), 'parse'));
+$reader = new Zend\Config\Reader\Yaml();
+//Quando for usar separadamente
+//$reader  = Zend\Config\Factory::getReaderPluginManager()->get('yaml');
 $config   = $reader->fromFile('config/application.yml');
 
 // Runs the application
-$application = Zend\Mvc\Application::init( $config )->run();
+$application = Zend\Mvc\Application::init( $config );
+$application->run();
 
 

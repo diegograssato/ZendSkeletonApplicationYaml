@@ -16,7 +16,7 @@ view_manager:
   template_map:
       layout/layout: module/Assets/view/layout/layout.phtml
       application/index/index: module/Assets/view/application/index/index.phtml
-      error/404: module/Assets/view/error/404.phtml
+      error/404: module/Assets/view/error/404.twig
       error/index: module/Assets/view/error/index.phtml
   template_path_stack:
       - module/Assets/view
